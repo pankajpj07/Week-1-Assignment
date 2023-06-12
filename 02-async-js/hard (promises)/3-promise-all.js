@@ -4,19 +4,28 @@
  * Print how long it took for all 3 promises to resolve.
  */
 
-
+function delayPromise(seconds) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, seconds * 1000);
+  });
+}
 function waitOneSecond() {
-
+  return delayPromise(1);
 }
 
 function waitTwoSecond() {
-
+  return delayPromise(2);
 }
 
 function waitThreeSecond() {
-
+  return delayPromise(3);
 }
 
 function calculateTime() {
-
+  console.time("promise-all");
+  Promise.all([waitOneSecond(), waitTwoSecond(), waitThreeSecond()])
+    .then(() => console.timeEnd("promise-all"))
+    .catch((err) => console.timeEnd("promise-all"));
 }
+
+calculateTime();
