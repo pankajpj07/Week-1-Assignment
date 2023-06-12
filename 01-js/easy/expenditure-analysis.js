@@ -11,15 +11,14 @@
 function calculateTotalSpentByCategory(transactions) {
   const output = [];
   transactions.forEach((transaction) => {
-    const existingCategory = output.find(
-      (item) => item.category === transaction.category
-    );
+    const { category, price } = transaction;
+    const existingCategory = output.find((item) => item.category === category);
     if (existingCategory) {
-      existingCategory.totalSpent += transaction.price;
+      existingCategory.totalSpent += price;
     } else {
       output.push({
-        category: transaction.category,
-        totalSpent: transaction.price,
+        category,
+        totalSpent: price,
       });
     }
   });
