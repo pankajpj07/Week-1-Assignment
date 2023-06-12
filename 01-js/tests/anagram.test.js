@@ -18,9 +18,7 @@ describe('isAnagram', () => {
 	});
 
 	test('returns true for anagrams with different casing', () => {
-		expect(isAnagram('Debit Card', 'Bad Credit')).toBe(
-			true
-		);
+		expect(isAnagram('Debit Card', 'Bad Credit')).toBe(true);
 		expect(
 			isAnagram('School MASTER', 'The ClassROOM')
 		).toBe(true);
