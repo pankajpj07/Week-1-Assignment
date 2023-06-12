@@ -25,7 +25,7 @@ function calculateTime() {
   console.time("promise-all");
   Promise.all([waitOneSecond(), waitTwoSecond(), waitThreeSecond()])
     .then(() => console.timeEnd("promise-all"))
-    .catch((err) => console.timeEnd("promise-all"));
+    .catch((err) => console.error("Error", err));
 }
 
 calculateTime();
